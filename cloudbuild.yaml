@@ -1,0 +1,23 @@
+steps:
+- name: 'gcr.io/cloud-builders/mvn'
+  args: ['install']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '--tag=gcr.io/sb-hello-world/$REPO_NAME:$COMMIT_SHA', '.']
+- name: 'gcr.io/cloud-builders/kubectl'
+  args:
+  - 'delete'
+  - 'deployment'
+  - 'sb-hello-world'
+  - '--ignore-not-found'
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=sb-hello-world'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args:
+  - 'run'
+  - 'sb-hello-world'
+  - '--image=gcr.io/sb-hello-world/$REPO_NAME:$COMMIT_SHA'
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=sb-hello-world'
+images: ['gcr.io/sb-hello-world/$REPO_NAME:$COMMIT_SHA']
