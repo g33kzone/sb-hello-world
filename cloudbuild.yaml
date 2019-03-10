@@ -20,4 +20,13 @@ steps:
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=sb-hello-world'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args:
+  - 'expose'
+  - 'deployment'
+  - 'sb-hello-world-service'
+  - '--type=LoadBalancer'
+  - '--port 80'
+  - '--target-port 8080'
 images: ['gcr.io/sb-hello-world-234105/$REPO_NAME:$COMMIT_SHA']
+
