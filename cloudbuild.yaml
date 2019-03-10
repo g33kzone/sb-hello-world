@@ -22,6 +22,12 @@ steps:
   - 'CLOUDSDK_CONTAINER_CLUSTER=sb-hello-world'
 - name: 'gcr.io/cloud-builders/kubectl'
   args:
+  - 'delete'
+  - 'service'
+  - '--name=sb-hello-world-service'
+  - '--ignore-not-found'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args:
   - 'expose'
   - 'deployment'
   - 'sb-hello-world'
