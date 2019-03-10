@@ -20,9 +20,8 @@ steps:
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=sb-hello-world'
-  resources:
-  - 'requests cpu=100m memory=150Mi'
-  - 'limits cpu=200m memory=250Mi'
+  - 'resources requests cpu=100m memory=150Mi'
+  - 'resources limits cpu=200m memory=250Mi'
 - name: 'gcr.io/cloud-builders/kubectl'
   args:
   - 'delete'
