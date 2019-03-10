@@ -22,7 +22,11 @@ steps:
   - 'CLOUDSDK_CONTAINER_CLUSTER=sb-hello-world'
   - 'resources requests cpu=100m memory=150Mi'
   - 'resources limits cpu=200m memory=250Mi'
-  - 'scale --replicas=3'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args:
+  - 'scale'
+  - 'sb-hello-world'
+  - '--replicas=3'
 - name: 'gcr.io/cloud-builders/kubectl'
   args:
   - 'delete'
