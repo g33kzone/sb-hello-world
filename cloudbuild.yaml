@@ -24,9 +24,10 @@ steps:
   args:
   - 'expose'
   - 'deployment'
-  - 'sb-hello-world-service'
+  - 'sb-hello-world'
   - '--type=LoadBalancer'
   - '--port=80'
   - '--target-port=8080'
+  - '--name=sb-hello-world-service'
 images: ['gcr.io/sb-hello-world-234105/$REPO_NAME:$COMMIT_SHA']
 
