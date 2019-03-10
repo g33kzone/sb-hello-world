@@ -25,6 +25,7 @@ steps:
 - name: 'gcr.io/cloud-builders/kubectl'
   args:
   - 'scale'
+  - 'deployment'
   - 'sb-hello-world'
   - '--replicas=3'
 - name: 'gcr.io/cloud-builders/kubectl'
