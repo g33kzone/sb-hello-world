@@ -43,5 +43,6 @@ steps:
   - '--port=80'
   - '--target-port=8080'
   - '--name=sb-hello-world-service'
+  - '--load-balancer-ip=35.193.82.77'
 images: ['gcr.io/sb-hello-world-234105/$REPO_NAME:$COMMIT_SHA']
 
