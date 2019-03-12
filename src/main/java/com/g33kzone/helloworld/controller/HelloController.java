@@ -12,6 +12,6 @@ public class HelloController {
 	@GetMapping(path="/hello",produces=MediaType.TEXT_PLAIN_VALUE)
 	public ResponseEntity<String> greetings() {
 		
-		return ResponseEntity.status(HttpStatus.OK).body("Hello World - Welcome to GCP Cloud Build using Kubernetes...");
+		return ResponseEntity.status(HttpStatus.OK).body("Hello World - Welcome to GCP Cloud Build using K8s...");
 	}
 }
