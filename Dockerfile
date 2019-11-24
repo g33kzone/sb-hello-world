@@ -1,5 +1,10 @@
-FROM openjdk:8-jdk-alpine
-VOLUME /tmp
-COPY target/sb-hello-world-0.0.1-SNAPSHOT.jar app.jar
-EXPOSE 8080/tcp
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","app.jar"]
+FROM maven:3.6-jdk-8-alpine AS builder
+WORKDIR /app
+COPY pom.xml .
+RUN mvn -e -B dependency:resolve
+COPY src ./src
+RUN mvn -e -B package
+
+FROM openjdk:8-jre-alpine
+COPY --from=builder /app/target/sb-hello-world.jar /app.jar
+CMD [ "java","-jar","/app.jar" ]
