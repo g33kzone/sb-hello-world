@@ -21,21 +21,8 @@ steps:
   inputs:
     command: 'build'
     Dockerfile: 'Dockerfile'
-- task: Maven@3
-  inputs:
-    mavenPomFile: 'pom.xml'
-    publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    codeCoverageToolOption: 'Cobertura'
-    codeCoverageFailIfEmpty: true
-    javaHomeOption: 'JDKVersion'
-    mavenVersionOption: 'Default'
-    mavenAuthenticateFeed: false
-    effectivePomSkip: false
-    sonarQubeRunAnalysis: true
-    sqMavenPluginVersionChoice: 'latest'
-    findBugsRunAnalysis: true
 - task: Docker@2
   inputs:
     containerRegistry: 'DockerRegistry'
+    repository: 'manish6385'
     command: 'push'
