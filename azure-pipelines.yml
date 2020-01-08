@@ -13,5 +13,6 @@ steps:
 - task: Docker@2
   inputs:
     containerRegistry: 'DockerRegistry'
+    repository: 'manish6385'
     command: 'buildAndPush'
     Dockerfile: 'Dockerfile'
