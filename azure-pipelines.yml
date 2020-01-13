@@ -15,5 +15,5 @@ steps:
     containerRegistry: 'gcr-devops'
     command: 'buildAndPush'
     Dockerfile: 'Dockerfile'
-    repository: 'g33kzone/sb-hello-world'
+    repository: 'devops-260809/g33kzone/sb-hello-world'
     
