@@ -12,7 +12,6 @@ pool:
 steps:
 - task: Docker@2
   inputs:
-    containerRegistry: 'DockerRegistry'
-    repository: 'manish6385/sb-hello-world'
+    containerRegistry: 'gcr-devops'
     command: 'buildAndPush'
     Dockerfile: 'Dockerfile'
