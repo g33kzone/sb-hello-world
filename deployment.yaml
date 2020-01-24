@@ -4,8 +4,8 @@ metadata:
   name: musicstore
 spec:
   ports:
-  - port: 80
-    targetPort: 80
+  - port: 8080
+    targetPort: 8080
     protocol: TCP
     name: http
   selector:
@@ -20,7 +20,7 @@ metadata:
 spec:
   backend:
     serviceName: musicstore
-    servicePort: 80
+    servicePort: 8080
 
 ---
 apiVersion: extensions/v1beta1
@@ -38,17 +38,17 @@ spec:
       - name: musicstore
         image: registry.hub.docker.com/g33kzone/hello:latest
         ports:
-          - containerPort: 80
+          - containerPort: 8080
         livenessProbe:      # Used by deployment controller
           httpGet:
             path: /
-            port: 80
+            port: 8080
           initialDelaySeconds: 5
           periodSeconds: 5
         readinessProbe:     # Used by Ingress/GCLB
           httpGet:
             path: /
-            port: 80
+            port: 8080
           initialDelaySeconds: 3
           periodSeconds: 5
         resources:
