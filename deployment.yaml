@@ -36,7 +36,7 @@ spec:
     spec:
       containers:
       - name: musicstore
-        image: g33kzone/hello:latest
+        image: registry.hub.docker.com/g33kzone/hello:latest
         ports:
           - containerPort: 80
         livenessProbe:      # Used by deployment controller
