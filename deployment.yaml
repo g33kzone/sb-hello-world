@@ -36,7 +36,7 @@ spec:
     spec:
       containers:
       - name: musicstore
-        image: gcr.io/devops-260809/g33kzone/sb-hello-world
+        image: g33kzone/hello:latest
         ports:
           - containerPort: 80
         livenessProbe:      # Used by deployment controller
