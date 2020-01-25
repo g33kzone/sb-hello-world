@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SbHelloWorldApplication<sb-hello-world>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.g33kzone.helloworld.SbHelloWorldApplication",
+            "projectName": "sb-hello-world",
+            "args": ""
+        }
+    ]
+}
