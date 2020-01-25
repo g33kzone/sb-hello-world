@@ -7,9 +7,10 @@ spec:
     app: demo-frontend
   ports:                                                                                                                                                                                                                                                              
   - protocol: TCP
-    port: 8080
+    port: 80
     nodePort: 30001
-  type: NodePort
+    targetPort: 8080
+  type: LoadBalancer
 ---
 apiVersion: apps/v1
 kind: Deployment
