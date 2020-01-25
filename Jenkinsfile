@@ -15,7 +15,7 @@ pipeline {
         stage("Build image") {
             steps {
                 script {
-                    myapp = docker.build("g33kzone/hello:${env.BUILD_ID}")
+                    myapp = docker.build("g33kzone/sb-hello-world:${env.BUILD_ID}")
                 }
             }
         }
