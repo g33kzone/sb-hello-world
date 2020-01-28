@@ -28,16 +28,8 @@ stages:
         command: 'buildAndPush'
         Dockerfile: 'Dockerfile'
         tags: '$(tag)'
-- stage: PublishAndCopy
-  displayName: Publish And Copy
-  jobs:  
-  - job: Publish
-    displayName: Publish
-    pool:
-      vmImage: 'ubuntu-latest'
-    steps: 
-    - task: PublishBuildArtifacts@1
+    - task: PublishPipelineArtifact@1
       inputs:
-        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-        ArtifactName: 'deployment.yaml'
-        publishLocation: 'Container'
+        targetPath: '$(Pipeline.Workspace)'
+        artifact: 'deployment.yaml'
+        publishLocation: 'pipeline'
