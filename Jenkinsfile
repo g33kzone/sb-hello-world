@@ -3,7 +3,7 @@ pipeline {
     environment {
         PROJECT_ID = 'devops-260809'
         CLUSTER_NAME = 'devops-pipelines-cicd-dev'
-        LOCATION = 'us-central1-a'
+        LOCATION = 'us-central1'
         CREDENTIALS_ID = 'devops-260809'
     }
     stages {
