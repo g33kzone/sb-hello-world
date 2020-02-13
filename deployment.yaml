@@ -28,7 +28,7 @@ spec:
   template:
     metadata:
       labels:
-        app: demo-template-hello-world
+        app: demo-app-hello-world
     spec:
       containers:
         - name: demo-container-hello-world
