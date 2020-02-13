@@ -7,6 +7,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: demo-svc-hello-world
+  namespace: demo-ns-hello-world
 spec:
   selector:
     app: demo-app-hello-world
