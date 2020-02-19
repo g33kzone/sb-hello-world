@@ -5,6 +5,7 @@ pipeline {
         CLUSTER_NAME = 'devops-pipelines-cicd-dev'
         LOCATION = 'us-central1'
         CREDENTIALS_ID = 'devops-260809'
+        NAMESPACE = 'demo-ns-hello-world'
     }
     stages {
         stage("Checkout code") {
@@ -32,7 +33,7 @@ pipeline {
         stage('Deploy to GKE') {
             steps{
                 sh "sed -i 's/sb-hello-world:latest/sb-hello-world:${env.BUILD_ID}/g' deployment.yaml"
-                step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: 'deployment.yaml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
+                step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, namespace: env.NAMESPACE, location: env.LOCATION, manifestPattern: 'deployment.yaml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
             }
         }
     }    
