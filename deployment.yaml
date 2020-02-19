@@ -30,7 +30,7 @@ spec:
   selector:
       matchLabels:
         app: demo-app-hello-world
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
