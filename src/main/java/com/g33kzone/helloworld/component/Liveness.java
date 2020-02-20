@@ -4,12 +4,13 @@ import org.springframework.boot.actuate.endpoint.annotation.Endpoint;
 import org.springframework.boot.actuate.endpoint.annotation.ReadOperation;
 import org.springframework.stereotype.Component;
 
-@Endpoint(id = "readiness")
+@Endpoint(id = "liveness")
 @Component
-public class Readiness {
-
+public class Liveness {
 	@ReadOperation
-	public String testReadiness() {
+	public String testLiveness() {
 		return "{\"status\":\"UP\"}";
+		
 	}
+
 }
