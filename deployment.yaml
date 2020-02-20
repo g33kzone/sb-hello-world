@@ -30,7 +30,7 @@ spec:
   selector:
       matchLabels:
         app: demo-app-hello-world
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
@@ -40,6 +40,13 @@ spec:
         - name: demo-container-hello-world
           image: g33kzone/sb-hello-world:latest
           imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "200Mi"
+              cpu: "200m"
+            limits:
+              memory: "300Mi"
+              cpu: "500m"
           ports:
             - containerPort: 8080
           readinessProbe:
